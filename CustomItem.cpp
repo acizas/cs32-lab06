@@ -26,17 +26,16 @@ CustomItem::~CustomItem() {
 void CustomItem::addTopping(std::string topping) {
 
   int oz = 1;
-  for (unsigned int i = 0; i < toppings.size(); i++){
-    if (toppings[i].first == topping){;
+  for (size_t i = 0; i < toppings.size(); i++){
+    if (toppings[i].first == topping){
 	toppings[i].second += 1.0;
 	this->price = this->price + 0.40;
 	return;
     }
-    
-    toppings.push_back(std::pair<std::string, int>(topping,oz));
-    this->price = this->price + 0.40;
+  }  
+  toppings.push_back(std::pair<std::string, int>(topping,oz));
+  this->price = this->price + 0.40;
   
-  }
 }
 
 double CustomItem::getPrice() {
@@ -46,40 +45,7 @@ double CustomItem::getPrice() {
 }
 
 std::string CustomItem::composeItem() {
-  /*
-  std::string out = "";
-  std::vector<std::string> removed;
-  std::vector<int> value;
- 
-  out += "Custom Size: ";
-  out += size;
-  out += '\n';
-  out += "Toppings: \n";
-  for (unsigned int i = 0; i < toppings.size(); i++){
-    int count = 0;
-    if (std::find(removed.begin(), removed.end(), toppings[i]) != removed.end()) {
-      removed.push_back(toppings[i]);
-      for (unsigned int j = 0; j < toppings.size(); j++) {
-	if (toppings[i] == toppings[j])
-	  count++;
-      }
-      value.push_back(count);
-    }
-  }
-  for (unsigned int k = 0; k < removed.size(); k++){
-    
-    out += removed[k];
-    out += ": ";
-    out += value[k];
-    out += " oz\n";
-    
-  }
-  out += "Price: $";
-  out += price;
-  out += '\n';
 
-  return out;
-  */
 
   std::stringstream stream;
   stream << std::fixed << std::setprecision(2) << this->getPrice();
@@ -90,10 +56,9 @@ std::string CustomItem::composeItem() {
       streamb << std::fixed << std::setprecision(2) << toppings[i].second;
       result += (toppings[i].first + ": " + streamb.str()+ " oz" + '\n');  
     }
-
-    result += "Price: $" + stream.str() = '\n';;
-    return result;
   }
+    result += "Price: $" + stream.str() + '\n';
+    return result;
 }
 
 
