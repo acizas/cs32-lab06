@@ -8,6 +8,7 @@
 #include "IceCreamItem.h"
 #include "PreMadeItem.h"
 
+// Default constructor
 PreMadeItem::PreMadeItem(std::string name, std::string size) : IceCreamItem(size) {
 
   this->name = name;
@@ -20,28 +21,33 @@ PreMadeItem::PreMadeItem(std::string name, std::string size) : IceCreamItem(size
 
 }
 
+// Destructor
 PreMadeItem::~PreMadeItem() {
 
 }
 
+// Returns price
 double PreMadeItem::getPrice() {
 
   return price;
 
 }
 
+// Returns size 
 std::string PreMadeItem::getSize() {
 
   return size;
 
 }
 
+// Returns name
 std::string PreMadeItem::getName() {
 
   return this->name;
 
 }
 
+// Creates a string of the item
 std::string PreMadeItem::composeItem(){
   /*
   std::string out = "";

@@ -8,6 +8,7 @@
 #include <string>
 #include "CustomItem.h"
 
+// Default constructor
 CustomItem::CustomItem(std::string size): IceCreamItem(size){
 
   if (size == "small")
@@ -19,10 +20,12 @@ CustomItem::CustomItem(std::string size): IceCreamItem(size){
   
 }
 
+// Destructor
 CustomItem::~CustomItem() {
   
 }
 
+// Adds a topping and increments the price
 void CustomItem::addTopping(std::string topping) {
 
   int oz = 1;
@@ -38,12 +41,14 @@ void CustomItem::addTopping(std::string topping) {
   
 }
 
+// Returns price
 double CustomItem::getPrice() {
 
   return price;
 
 }
 
+// Produces custom item string
 std::string CustomItem::composeItem() {
 
 
